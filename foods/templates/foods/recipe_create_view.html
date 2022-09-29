@@ -1,0 +1,32 @@
+{% extends 'foods/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'foods/recipe_create.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="create-form">
+    <a href="{% url 'my-recipes' %}"><i class="fa-solid fa-arrow-left"></i> Go Back</a>
+
+    <h1>Submit your recipe!</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-items">
+            {% for field in form %}
+            <div class="form-item">
+                {{ field.label }}
+                {{ field }}
+            </div>
+            {% endfor %}
+           
+        </div>
+        <div class="sub-btn">
+        <input type="submit" value="Submit Recipe">
+    </div>
+
+    </form>
+</div>
+
+{% endblock body %}

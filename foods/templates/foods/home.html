@@ -1,0 +1,33 @@
+{% extends 'foods/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'foods/home.css' %}">
+    
+{% endblock css %}
+    
+
+<!-- {% block recipe_link %}
+<a href="{% url 'home' %}">Home</a>
+    
+{% endblock recipe_link %} -->
+    
+
+{% block body %}
+<div class="home">
+    <div class="left">
+        <i class="fa-solid fa-mug-hot"></i>
+        <h1>Welcome to <br> <span>FRF</span></h1>
+        <p>Find the recipes of food you like!</p>
+        <div class="btn">
+        <a href="">Submit Recipes</a>
+        <a href="{% url 'recipes' %}">Find Recipes</a>
+    </div>
+    </div>
+    <div class="right">
+        <img src="{% static 'foods/images/bg_img.jpg' %}" alt="">
+    </div>
+    </div>
+{% endblock body %}
+    

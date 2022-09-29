@@ -1,0 +1,73 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+
+{% block reg_name %}
+Sign Up
+{% endblock reg_name %}
+
+
+{% block form %}
+
+<form action="/sign-up" method="post" onsubmit="validateForm(event)" id="form">
+    {% csrf_token %}
+    <div class="input" id="fname-div">
+        <input type="text" required name="fname" id="fname" value="{{ currFname }}">
+        <span>First Name</span>
+        <small class="hidden">Please use alphabets!</small>
+    </div>
+
+    <div class="input" id="lname-div">
+        <input type="text" required name="lname" id="lname" value="{{ currLname }}">
+        <span>Last Name</span>
+        <small class="hidden">Please use alphabets!</small>
+    </div>
+
+    {% if emailExist %}
+    <div class="input error" id="email-div">
+        {% else %}
+        <div class="input" id="email-div">
+            {% endif %}
+            <input type="email" required name="email" id="email" value="{{ currEmail }}">
+            <span>Email</span>
+            <small class="hidden">Email already exists!</small>
+        </div>
+
+
+        {% if passError %}
+            <div class="input error" id="password-div">
+        {% else %}
+            <div class="input" id="password-div">
+        {% endif %}
+
+                <input type="password" required name="password" id="password">
+                <span>Password</span>
+                <small class="hidden">{{ passErrorMessage }}</small>
+
+                <div class="pass_msg pass_msg_hidden">
+                    <b> Password requirements:</b>
+                    <ul>
+
+                        <li>8 or more characters</li>
+                        <li>Atleast one capital letter</li>
+                        <li>One number[0-9]</li>
+                        <li>One special character (@,^&:% etc.)</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="input" id="confirm-password-div">
+                <input type="password" required name="confirm-password" id="confirm-password">
+                <span>Confirm Password</span>
+                <small class="hidden">Error message goes here</small>
+            </div>
+            <p class="already">Already have an account? <a href="{% url 'sign-in' %}">Login</a></p>
+            <input type="submit" value="SignUp">
+</form>
+
+{% endblock form %}
+
+
+{% block script %}
+<script src="{% static 'authentication/script.js' %}"></script>
+{% endblock script %}

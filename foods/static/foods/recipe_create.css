@@ -1,0 +1,101 @@
+
+.body {
+    width: 100%;
+
+}
+.body .create-form {
+  
+    background-color: #fff;
+    width: 100%;
+    padding: 5% 8%;
+}
+
+.body .create-form a {
+
+    color: var(--dark-color);
+    font-size: 18px;
+}
+
+.body .create-form a:hover {
+    color: var(--green-color);
+
+}
+
+.body .create-form h1 {
+    color: var(--dark-color);
+    margin-bottom: 35px;
+    font-family: 'Poppins', serif;
+}
+
+.body .create-form .form-items {
+    display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35px 35px 1fr 1fr ;
+  gap: 20px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "."
+    "."
+    "."
+    "."
+    ".";
+}
+
+.body .create-form .form-item {
+  display: grid;
+  grid-template-columns: 0.6fr 1.4fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". .";
+}
+
+input {
+    outline: none;
+    border: 1px solid rgb(184, 189, 201);
+    border-radius: 4px;
+    color: rgb(44, 51, 69);
+    font-size: 16px;
+    padding: 6px 4px;
+}
+
+/* input[type="text"] {
+    
+} */
+
+textarea {
+    resize: vertical;
+    outline: none;
+    border: 1px solid rgb(184, 189, 201);
+    border-radius: 4px;
+    color: rgb(44, 51, 69);
+    font-size: 16px;
+    padding: 6px 4px;
+}
+
+input[type="text"]:hover, input[type="file"]:hover, textarea:hover {
+    border-color: rgba(46, 105, 255, 0.5);
+    box-shadow: rgb(46 105 255 / 25%) 0 0 0 2px;
+}
+
+input[type="text"]:focus, input[type="file"]:focus, textarea:focus {
+    border-color: rgba(46, 105, 255, 1);
+    box-shadow: rgb(46 105 255 / 25%) 0 0 0 3px;
+}
+
+.sub-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+input[type="submit"] {
+    padding: 15px 30px;
+    cursor: pointer;
+    background-color: var(--green-color);
+    color: #fff;
+    margin-top: 35px;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,83 @@
+{% extends 'foods/base.html' %}
+{% load static %}
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'foods/recipe_list.css' %}">
+    
+{% endblock css %}
+    
+{% block recipe_link %}
+<a href="{% url 'home' %}">Home</a>
+
+{% endblock recipe_link %}
+
+
+{% block body %}
+<div class="view">
+    
+    <div class="recipes">
+
+        <div class="heading" style="text-align: left; align-items: center; margin-bottom: 25px; display: flex;
+        justify-content: space-between; flex-direction: row;">
+            <h1>Hello,<span style="color: var(--green-color); text-transform: capitalize;">{{ user.first_name }}</span></h1>
+            <a href="{% url 'create-recipe' %}" class="add-recipe">Add Recipe</a>
+        </div>
+        
+        {% if user_recipes|length > 0 %}
+        <section class="dl-blurbs">
+            <dl>
+
+                {% for recipe in user_recipes %}
+
+                {% if forloop.counter0|divisibleby:"2" %}
+                <a href="{% url 'recipes-detail' recipe.id %}">
+                    <dt>{{ recipe.title }}</dt>
+                    <dd>by <span>{{ recipe.user }}</span></dd>
+
+                </a>
+                <div class="links">
+                    <a href="{% url 'recipes-delete' recipe.id %}"><i class="fa-solid fa-trash-can"></i></a>
+                    <a href="{% url 'recipes-edit' recipe.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
+                {% endif %}
+
+                {% endfor %}
+            </dl>
+            <dl>
+
+                {% for recipe in user_recipes %}
+
+                {% if not forloop.counter0|divisibleby:"2" %}
+                <a href="{% url 'recipes-detail' recipe.id %}" class="recipe-btn">
+                    <dt>{{ recipe.title }}</dt>
+                    <dd>by <span>{{ recipe.user }}</span></dd>
+
+                </a>
+                <div class="links">
+                    <a href="{% url 'recipes-delete' recipe.id %}"><i class="fa-solid fa-trash-can"></i></a>
+                    <a href="{% url 'recipes-edit' recipe.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
+                {% endif %}
+
+                {% endfor %}
+            </dl>
+        </section>
+
+        {% else %}
+            <div class="nodata">
+                No recipes yet! Add some <a href="" style="color: blue;">here.</a>
+            </div>
+        {% endif %}
+            
+       
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock body %}

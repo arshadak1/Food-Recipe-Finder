@@ -1,0 +1,31 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+
+{% block reg_name %}
+    Login
+{% endblock reg_name %}
+    
+
+{% block form %}
+
+{% if not user.is_authenticated %}
+<form action="/login" method="post">
+    {% csrf_token %}
+    <div class="input">
+        <input type="email" required name="email">
+        <span>Email</span>
+    </div>
+    <div class="input">
+        <input type="password" required name="password">
+        <span>Password</span>
+    </div>
+       
+    <p class="already">Don't have an account? <a href="{% url 'sign-up' %}">Signup</a></p>
+    <input type="submit" value="Login">
+</form>
+{% endif %}
+    
+
+
+{% endblock form %}

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'authentication/style.css' %}">
+    <title>FRF - Food Recipe Finder</title>
+</head>
+
+<body>
+    <div class="navbar container">
+        <div class="logo">
+            <div class="circle"></div>
+            <h3>FRF</h3>
+        </div>
+    </div>
+
+    <div class="container body">
+        <div class="heading">
+            <h1>Welcome to <span>FRF</span></h1>
+            <!-- <p>Find any foods you like!</p> -->
+        </div>
+        <div class="forms">
+            <div class="image">
+                <img src="{% static 'foods/images/login-sign.jpg' %}" alt="">
+            </div>
+            <div class="signup">
+                <div class="heading">
+                    <h1>
+                    {% block reg_name %}
+                        Sign Up
+                    {% endblock reg_name %}
+                        </h1>
+                </div>
+                <div class="form">
+                    
+                    {% block form %}
+                                            
+                    
+                    {% endblock form %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% block script %}
+        <script></script>
+    {% endblock script %}
+        
+</body>
+
+</html>

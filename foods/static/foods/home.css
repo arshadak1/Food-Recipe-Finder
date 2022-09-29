@@ -1,0 +1,86 @@
+/* 
+font-family: 'Major Mono Display', monospace;
+font-family: 'Pacifico', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+ */
+.body {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    padding: 5% 8%;
+}
+
+.body .home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.body .left {
+    width: 50%;
+}
+
+
+.body .right {
+    display: flex;
+    justify-content: end;
+    width: 50%;
+}
+
+.body .right img {
+    max-width: 510px;
+}
+.body .left i {
+    font-size: 64px;
+    color: var(--green-color);
+    margin-bottom: 10px;
+}
+
+.body .left h1 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 4rem;
+    color: var(--dark-color);
+}
+
+.body .left span {
+font-family: 'Pacifico', cursive;
+color: var(--yellow-color);
+}
+
+.body .left p {
+    font-size: 24px;
+    font-family: monospace;
+}
+.body .left .btn {
+    margin-top: 40px;
+}
+.body .left .btn a:nth-child(1) {
+    background: var(--green-color);
+    padding: 15px 30px;
+    border-radius: 3px;
+    margin-top: 20px;
+    color: var(--white-color);
+    font-size: 20px;
+    font-family: monospace;
+    margin-right: 10px;
+}
+
+.body .left .btn a:nth-child(1):hover 
+{
+    opacity: 0.8;
+}
+
+.body .left .btn a:nth-child(2) {
+    color: var(--dark-color);
+    font-size: 20px;
+    font-family: monospace;
+
+
+}
+
+.body .left .btn a:nth-child(2):hover {
+    color: var(--yellow-color);
+}

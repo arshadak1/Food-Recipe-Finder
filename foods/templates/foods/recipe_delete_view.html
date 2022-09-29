@@ -1,0 +1,60 @@
+{% extends 'foods/base.html' %}
+{% load static %}
+
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'foods/recipe_list.css' %}">
+<style>
+    #delete  {
+        background-color: #e8594f;
+        padding: 5px 10px;
+        font-family: 'Poppins', serif;
+        font-size: 16px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+    .links-delete {
+        margin-top: 10px;
+    }
+    .links-delete a {
+        margin-left: 10px;
+        color: var(--dark-color);
+    }
+    .links-delete a:hover {
+        color: var(--green-color);
+    }
+
+    #delete:hover  {
+        background-color: #e50d2f;
+    }
+
+
+</style>
+    
+{% endblock css %}
+    
+{% block recipe_link %}
+<a href="{% url 'home' %}">Home</a>
+
+{% endblock recipe_link %}
+
+
+{% block body %}
+<div class="view">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Are you sure you want to delete this Recipe? <b>{{ recipe.title }}</b></p>
+        <div class="links-delete">
+        <input type="submit" value="Delete" id="delete">
+        
+        <a href="{% url 'my-recipes' %}">Cancel</a>
+        
+            
+    </div>
+    </form>
+</div>
+        
+        
+
+{% endblock body %}

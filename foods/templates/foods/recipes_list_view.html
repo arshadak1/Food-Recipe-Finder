@@ -1,0 +1,70 @@
+{% extends 'foods/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'foods/recipe_list.css' %}">
+{% endblock css %}
+
+{% block body %}
+<div class="view">
+<div class="heading">
+    <h1>Welcome to <span>FRF</span></h1>
+    <p>Find any foods you like!</p>
+</div>
+<div class="form">
+<div id="cover">
+    <form method="get" action="">
+      <div class="tb">
+        <div class="td"><input type="text" placeholder="Search" name="search-input" value="{{ search_input_text }}"></div>
+        <div class="td" id="s-cover">
+          <button type="submit">
+            <div id="s-circle"></div>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="recipes">
+
+   
+
+    <section class="dl-blurbs">
+        <dl>
+
+            {% for recipe in recipes %}
+
+            {% if forloop.counter0|divisibleby:"2" %}
+            <a href="{% url 'recipes-detail' recipe.id %}">
+                <dt>{{ recipe.title }}</dt>
+                <dd>by <span>{{ recipe.user }}</span></dd>
+            </a>
+            {% endif %}
+
+            {% endfor %}
+        </dl>
+        <dl>
+
+            {% for recipe in recipes %}
+
+            {% if not forloop.counter0|divisibleby:"2" %}
+            <a href="{% url 'recipes-detail' recipe.id %}" class="recipe-btn">
+                <dt>{{ recipe.title }}</dt>
+                <dd>by <span>{{ recipe.user }}</span></dd>
+
+            </a>
+            {% endif %}
+
+            {% endfor %}
+        </dl>
+    </section>
+
+
+
+
+
+</div>
+</div>
+{% endblock body %}
